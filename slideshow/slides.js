@@ -21,8 +21,8 @@ window.DI_SLIDES = [
     "title": "From fish schools to robot formations"
   },
   {
-    "file": "06 Diamond formation tracked by onboard LEDs.jpg",
-    "title": "Diamond formation tracked by onboard LEDs"
+    "file": "06 Diamond formation.jpg",
+    "title": "Diamond formation"
   },
   {
     "file": "07 Robot view - fisheye camera and depth estimate.jpg",
