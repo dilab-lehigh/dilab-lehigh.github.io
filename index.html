@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DI Lab — Lehigh University</title>
+<meta name="description" content="The Distributed Intelligence Lab (DI Lab) at Lehigh University builds small, fish-inspired robot swarms that sense, decide, and act collectively with minimal resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html"><b>DI Lab<i>.</i></b><span>Distributed Intelligence Lab</span></a>
+    <nav class="menu" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="research.html">Research</a>
+      <a href="team.html">Team</a>
+      <a href="join.html">Join</a>
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=r9lAqFUAAAAJ" target="_blank" rel="noopener">Publications↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero-band">
+  <div class="wrap hero2">
+    <div class="hero2-text">
+      <!-- <p class="welcome">Welcome to the DI Lab</p> -->
+      <span class="eyebrow">Towards small-scale artificial collectives</span>
+      <h1>How can we build small robotic swarms that sense, decide, and act collectively with minimal resources?</h1>
+      <p>We develop small-scale robot swarms that autonomously explore challenging environments — designing robots that perceive and act with limited resources, coordinate for collective behaviors, and probe fundamental questions in actuation, power, fluid mechanics, and collective intelligence. Our work sits where microsystems meet swarm robotics, and it is inspired by nature: fish schools that move, forage, and save energy together.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="research.html">Explore our research →</a>
+        <a class="btn btn-ghost" href="join.html">Join the lab</a>
+      </div>
+    </div>
+    <div class="carousel" id="carousel" role="region" aria-roledescription="carousel" aria-label="Lab photos">
+      <div class="viewport" tabindex="0">
+        <div class="track"></div>
+        <button type="button" class="arrow prev" aria-label="Previous photo">‹</button>
+        <button type="button" class="arrow next" aria-label="Next photo">›</button>
+      </div>
+      <div class="c-controls">
+        <div class="dots"></div>
+        <span class="counter" aria-hidden="true"><b>1</b> / 1</span>
+        <button type="button" class="playpause" aria-label="Pause slideshow">Pause</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap home-cols">
+    <div>
+      <h2>News</h2>
+      <ul class="news">
+  <!-- <li><time>Sep 2026</time><span>Dr. Ni will present <em>Towards Small-scale Artificial Collectives</em> at <a href="https://nrifrr-mtg26.org/" target="_blank" rel="noopener">NSF FRR 2026</a>.</span></li> -->
+  <li><time>Sep 2026</time><span>Dr. Ni presented <em>Small-scale Robots: From one to a Swarm</em> at Lehigh Robot Autonomy Seminar.</span></li>
+  <li><time>Aug 2026</time><span>The DI Lab launches at Lehigh University. We're recruiting our first cohort — <a href="join.html">join us</a>! <span class="tbd">confirm month</span></span></li>
+  <li><time>Aug 2026</time><span>Dr. Di Ni joins Lehigh ECE as an Assistant Professor. <span class="tbd">confirm month</span></span></li>
+</ul>
+    </div>
+    <div>
+      <div class="callout"><b>We're hiring.</b><p>PhD, MS, and undergraduate positions for 2027. <a href="join.html">How to join →</a></p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<script src="slideshow/slides.js"></script>
+<script>
+/* Home-page slideshow. Pictures come from the slideshow/ folder via
+   slideshow/slides.json (kept up to date automatically — see README).
+   The list below is only a fallback for when that file can't be loaded,
+   e.g. when opening index.html straight from your computer. */
+(function(){
+  var FALLBACK=[{"file": "01 BlueSwarm - a school of vision-guided robot fish.jpg", "title": "BlueSwarm - a school of vision-guided robot fish"}, {"file": "02 From fish schools to robot formations.jpg", "title": "From fish schools to robot formations"}, {"file": "03 Diamond formation tracked by onboard LEDs.jpg", "title": "Diamond formation tracked by onboard LEDs"}, {"file": "04 Robots in the field - rocky shallows.jpg", "title": "Robots in the field - rocky shallows"}, {"file": "05 Swimming over a seagrass bed.jpg", "title": "Swimming over a seagrass bed"}, {"file": "06 Robot view - fisheye camera and depth estimate.jpg", "title": "Robot view - fisheye camera and depth estimate"}, {"file": "07 3D reconstruction of rock and coral.jpg", "title": "3D reconstruction of rock and coral"}, {"file": "08 Mangrove field study.jpg", "title": "Mangrove field study"}, {"file": "09 Hands-on outreach with students.jpg", "title": "Hands-on outreach with students"}];
+  var root=document.getElementById('carousel'); if(!root) return;
+  var track=root.querySelector('.track'), dotsBox=root.querySelector('.dots'),
+      counter=root.querySelector('.counter'), pp=root.querySelector('.playpause'), vp=root.querySelector('.viewport');
+  var slides=[], dots=[], n=0, i=0, timer=null, playing=true, hover=false, sig='';
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function titleFrom(f){ return f.replace(/\.[^.]+$/,'').replace(/^\d+[\s._-]+/,'').replace(/_/g,' ').trim(); }
+  function build(list){
+    list=(list||[]).filter(function(s){return s&&s.file;});
+    var key=JSON.stringify(list); if(!list.length||key===sig) return; sig=key;
+    track.innerHTML=''; dotsBox.innerHTML='';
+    n=list.length; i=0;
+    list.forEach(function(s,k){
+      var t=s.title||titleFrom(s.file);
+      var fig=document.createElement('figure'); fig.className='slide';
+      fig.setAttribute('role','group'); fig.setAttribute('aria-roledescription','slide'); fig.setAttribute('aria-label',(k+1)+' of '+n);
+      var img=document.createElement('img'); img.src='slideshow/'+encodeURIComponent(s.file); img.alt=t; if(k>1) img.loading='lazy';
+      var cap=document.createElement('figcaption'); cap.textContent=t;
+      fig.appendChild(img); fig.appendChild(cap); track.appendChild(fig);
+      var d=document.createElement('button'); d.type='button'; d.className='dot'; d.setAttribute('aria-label','Show slide '+(k+1));
+      d.addEventListener('click',function(){ go(k); restart(); }); dotsBox.appendChild(d);
+    });
+    slides=[].slice.call(track.children); dots=[].slice.call(dotsBox.children);
+    root.querySelector('.c-controls').hidden = n<2; root.querySelector('.prev').hidden = n<2; root.querySelector('.next').hidden = n<2;
+    go(0); if(playing) start();
+  }
+  function go(k){
+    if(!n) return; i=(k+n)%n; track.style.transform='translateX('+(-100*i)+'%)';
+    slides.forEach(function(s,j){ if(j===i) s.removeAttribute('aria-hidden'); else s.setAttribute('aria-hidden','true'); });
+    dots.forEach(function(d,j){ if(j===i) d.setAttribute('aria-current','true'); else d.removeAttribute('aria-current'); });
+    counter.innerHTML='<b>'+(i+1)+'</b> / '+n;
+  }
+  function tick(){ if(playing&&!hover&&n>1) go(i+1); }
+  function start(){ stop(); timer=setInterval(tick,5000); }
+  function stop(){ if(timer) clearInterval(timer); timer=null; }
+  function restart(){ if(playing) start(); }
+  function setPlaying(p){ playing=p; pp.textContent=p?'Pause':'Play'; pp.setAttribute('aria-label',p?'Pause slideshow':'Play slideshow'); p?start():stop(); }
+  root.querySelector('.prev').addEventListener('click',function(){ go(i-1); restart(); });
+  root.querySelector('.next').addEventListener('click',function(){ go(i+1); restart(); });
+  pp.addEventListener('click',function(){ setPlaying(!playing); });
+  root.addEventListener('mouseenter',function(){hover=true;}); root.addEventListener('mouseleave',function(){hover=false;});
+  root.addEventListener('focusin',function(){hover=true;}); root.addEventListener('focusout',function(){hover=false;});
+  vp.addEventListener('keydown',function(e){ if(e.key==='ArrowLeft'){go(i-1);e.preventDefault();} if(e.key==='ArrowRight'){go(i+1);e.preventDefault();} });
+  var x0=null;
+  vp.addEventListener('pointerdown',function(e){x0=e.clientX;});
+  vp.addEventListener('pointerup',function(e){ if(x0===null) return; var dx=e.clientX-x0; x0=null; if(Math.abs(dx)>40){ go(dx<0?i+1:i-1); restart(); } });
+  document.addEventListener('visibilitychange',function(){ if(document.hidden) stop(); else if(playing) start(); });
+  playing=!reduce; pp.textContent=playing?'Pause':'Play';
+  build(window.DI_SLIDES||FALLBACK);
+  try {
+    fetch('slideshow/slides.json',{cache:'no-cache'}).then(function(r){ return r.ok?r.json():null; })
+      .then(function(list){ if(Array.isArray(list)) build(list); }).catch(function(){});
+  } catch(e) {}
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <span>Distributed Intelligence Lab · Lehigh University</span>
+    <nav aria-label="Links">
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=r9lAqFUAAAAJ" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://di-ni.github.io/" target="_blank" rel="noopener">Personal site</a>
+      <a href="https://www.linkedin.com/in/di-ni-7b8401142/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:din226@lehigh.edu">Contact</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

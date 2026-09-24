@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — DI Lab</title>
+<meta name="description" content="DI Lab research: from millimeter-scale actuators and power, to single fish-inspired robots, to swarms, to what swarms reveal about the natural world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html"><b>DI Lab<i>.</i></b><span>Distributed Intelligence Lab</span></a>
+    <nav class="menu" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="team.html">Team</a>
+      <a href="join.html">Join</a>
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=r9lAqFUAAAAJ" target="_blank" rel="noopener">Publications↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap page-head rq"><span class="eyebrow-l">Research</span><h1>Towards small-scale <em>artificial collectives</em></h1><p>How can we build small robotic swarms that sense, decide, and act collectively with minimal resources?</p></div>
+<section><div class="wrap">
+  <div class="intro-block"><p class="intro-full">Nature showcases organisms with remarkable individual locomotion capabilities and collective behaviors, from hummingbirds demonstrating exceptional agility and precise hovering to schools of fish traveling thousands of miles through coordinated and adaptive group motion. These collectives exhibit remarkable self-organization, where large numbers of relatively simple agents rely on local interactions to generate complex global behaviors. In this way, the collective can achieve capabilities that extend far beyond those of any individual agent.</p>
+<p class="intro-full">Our group draws inspiration from these biological systems to develop artificial collectives of our own. We seek breakthroughs in hardware, algorithms, and fundamental science that enable robots with limited resources and capabilities to achieve greater autonomy, adaptability, and complexity through collective intelligence.</p></div>
+  <figure class="venn-wide"><img src="img/vision-venn.jpg" alt="Venn diagram: Microsystems and Swarm Robotics overlap in Miniaturized Robotic Swarms"><figcaption>Our work sits where microsystems meet swarm robotics.</figcaption></figure>
+</div></section>
+
+<section class="level" id="reveal"><div class="wrap lv">
+  <div class="lv-label"><h2>Using collectives as scientific instruments</h2></div>
+  <div class="lv-body">
+    <h3>Hydrodynamic interactions</h3>
+    <p>BlueSwarm lets us measure individual energy costs and see how hydrodynamic interactions shape collective swimming — such as how hard each follower works its caudal fin relative to the leader, depending on where it swims in the formation.</p>
+    <h3 style="margin-top:28px">Environmental monitoring</h3>
+    <p>High-resolution exploration, fine-scale monitoring, and data collection in previously inaccessible environments — turning robot imagery into depth estimates and 3D reconstructions of habitat.</p>
+    <div class="figs"><div class="pair"><figure><video class="vid" autoplay muted loop playsinline preload="metadata" poster="img/field-robot-2.jpg" aria-label="Video of a Bluebot swimming over seagrass"><source src="https://di-ni.github.io/images/bluebot_free_swimming_seagrass_trimmed.mp4" type="video/mp4"></video><figcaption>Free swimming through seagrass.</figcaption></figure><figure><video class="vid" autoplay muted loop playsinline preload="metadata" poster="img/robot-view.jpg" aria-label="Dual-camera video recorded by a robot in the mangroves"><source src="https://di-ni.github.io/images/Di-research%20video%20dualcamera%20mangrove%20low%20res.mp4" type="video/mp4"></video><figcaption>Dual-camera view in the mangroves.</figcaption></figure></div></div>
+  </div>
+</div></section>
+
+<section class="level" id="swarm"><div class="wrap lv">
+  <div class="lv-label"><h2>Decentralized coordination</h2></div>
+  <div class="lv-body"><p>Fish schools are one of the best-known examples of collective behavior: thousands of fish migrate together, form dynamic formations to navigate cluttered environments, and assemble into structures like bait balls to evade predators.</p>
+<p>Using <strong>BlueSwarm</strong>, an underwater swarm of 10 Bluebots, we showed robots navigating in a variety of formations — following behind or alongside each other, moving above and below, and holding diamond-shaped configurations — all from noisy local visual interactions. It is the first experimental realization of entirely vision-based 3D formation control in miniature underwater robots.</p><div class="figs"><img class="photo" src="img/fish-vs-robots.jpg" alt="Fish school next to robots in formation"><figure><video class="vid" autoplay muted loop playsinline preload="metadata" poster="img/diamond-formation.jpg" aria-label="Video of robots swimming in a diamond formation"><source src="https://di-ni.github.io/images/diamond_x8.mp4" type="video/mp4"></video><figcaption>Fish-Inspired Robotic Swarm</figcaption></figure></div></div>
+</div></section>
+
+<section class="level" id="robot"><div class="wrap lv">
+  <div class="lv-label"><h2>Perception &amp; control under constraints</h2></div>
+  <div class="lv-body"><p>Idealized models and control laws often assume robots have extensive knowledge of the environment, precise awareness of their own state, and abundant computation. Small robots have none of these: sensing is noisy, actuation is limited, and communication is constrained.</p>
+<p><strong>Bluebots</strong> are built around those limits — fish-inspired robots with 3D maneuverability and 3D visual perception designed for embodied intelligence and autonomous decision-making, field-tested free-swimming through seagrass and mangroves.</p>
+  <figure class="plate" style="margin-top:22px;max-width:680px"><img src="img/platforms-scale.jpg" alt="Blue Guppy, Blue Swarm and Blue Koi robots on a 1 cm to 2 m scale alongside real fish"><figcaption>Our fish-inspired platforms, scaled against the fish that inspire them.</figcaption></figure></div>
+</div></section>
+
+<section class="level" id="parts"><div class="wrap lv">
+  <div class="lv-label"><h2>Actuation, sensing &amp; power for small-scale robots</h2></div>
+  <div class="lv-body"><p>Most small-scale robots still lack the payload capacity and on-board resources for full autonomy. We build the parts that close that gap:</p>
+<ul class="facts">
+  <li><b>PIPE actuator</b> — a muscle-inspired electrostatic actuator whose model predicts force densities <b>5–10×</b> higher than biological muscle with further miniaturization.</li>
+  <li><b>Pyroelectric generator</b> — a mm-scale lithium-niobate device producing <b>1–3 kV</b> in just <b>0.25 cm³</b>.</li>
+  <li><b>Solar thermal harvesting</b> — sunlight-driven power for distributed, multi-actuator systems.</li>
+</ul><figure class="plate"><img src="img/pipe-actuator.jpg" alt="Left: muscle tissue and its fiber structure translated into a layered electrostatic actuator between V+ and V− electrodes. Right: a soft, segmented robot wrapped in actuator coils, climbing over a rock."></figure></div>
+</div></section>
+<section><div class="wrap"><p class="more-link" style="margin-top:0"><a href="https://scholar.google.com/citations?hl=en&amp;user=r9lAqFUAAAAJ" target="_blank" rel="noopener">Full publication list on Google Scholar↗</a></p></div></section>
+</main>
+<script>
+(function(){ if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('video.vid').forEach(function(v){ v.removeAttribute('autoplay'); v.pause(); v.controls=true; }); } })();
+</script>
+
+<footer>
+  <div class="wrap">
+    <span>Distributed Intelligence Lab · Lehigh University</span>
+    <nav aria-label="Links">
+      <a href="https://scholar.google.com/citations?hl=en&amp;user=r9lAqFUAAAAJ" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://di-ni.github.io/" target="_blank" rel="noopener">Personal site</a>
+      <a href="https://www.linkedin.com/in/di-ni-7b8401142/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:din226@lehigh.edu">Contact</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
